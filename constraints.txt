@@ -75,7 +75,7 @@ cryptography==44.0.0
     #   -c https://raw.githubusercontent.com/Dallinger/Dallinger/v11.0.1/dev-requirements.txt
     #   paramiko
     #   pyopenssl
-dallinger[docker]==11.0.0
+dallinger[docker]==11.0.1
     # via psynet
 decorator==5.1.1
     # via
