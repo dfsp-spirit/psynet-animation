@@ -16,11 +16,13 @@ Make sure you have a recent Python version (e.g., Python 3.12) and the Google Ch
 ```sh
 git clone https://github.com/dfsp-spirit/psynet-animation.git
 cd psynet-animation/
+python -m venv venv
+source venv/bin/activate
 pip install -r constraints.txt
 psynet debug local   # opens your Chrome webbrowser.
 ```
 
-Chrome should open and display the PsyNet overview page. Click on 
+Chrome should open and display the PsyNet overview page. Click on
 
 
 
