@@ -22,6 +22,7 @@ from psynet.modular_page import (
 )
 from psynet.page import DebugResponsePage, InfoPage
 from psynet.timeline import MediaSpec, Timeline
+from psynet.consent import NoConsent
 
 
 class Exp(psynet.experiment.Experiment):
@@ -30,6 +31,7 @@ class Exp(psynet.experiment.Experiment):
     # asset_storage = S3Storage("psynet-tests", "graphics")
 
     timeline = Timeline(
+        NoConsent(),
         InfoPage(
             "Graphic components provide a way to display interactive visual animations to the participant.",
             time_estimate=5,
