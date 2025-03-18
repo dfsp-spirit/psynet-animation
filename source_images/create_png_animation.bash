@@ -49,8 +49,8 @@ generate_html() {
 
 # Convert frames to animated images
 for color in "${colors[@]}"; do
-    echo "Converting ${color} bird frames to bird${color}_animated.png"
-    ffmpeg -y -framerate 2 -i "bird${color}_frame%d.png" -plays 0 -vf "fps=2" -f apng "bird${color}_animated.png"
+    echo "Converting ${color} bird frames to ${output_dir}/bird${color}_animated.png"
+    ffmpeg -y -framerate 2 -i "bird${color}_frame%d.png" -plays 0 -vf "fps=2" -f apng "${output_dir}/bird${color}_animated.png"
 done
 
 # Generate HTML with the colors
