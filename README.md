@@ -22,9 +22,11 @@ pip install -r constraints.txt
 psynet debug local   # opens your Chrome webbrowser.
 ```
 
-Chrome should open and display the PsyNet overview page. Click on
+Chrome should open automatically and display the PsyNet overview page. If not, open Chrome manually and connect to [localhost:5000](http://localhost:5000).
 
+Select the `Development` tab and click `New Participant` to run the experiment.
 
+Note: If you are running an older Linux version and your system Python is very old, you can install `miniconda` and use it to get a more recent Python.
 
 
 ### Other way of installing
@@ -34,3 +36,22 @@ If you need to run this under Windows, please follow the full PsyNet installatio
 ## General information on the PsyNet framework
 
 For more information about PsyNet, see the [documentation website](https://psynetdev.gitlab.io/PsyNet/).
+
+
+## Troubleshooting hints
+
+#### Problem: I am being asked for a password when manually connecting to the PsyNet overview page at http://localhost:5000.
+
+Solution: PsyNet sets a suer and password and starts Chrome in a way that provides these credentials. If you connect manually, you will be asked for this information. The easiest way to get the information is to define it yourself in the config file `~/.dallingerconfig` like this:
+
+Create the file `~/.dallingerconfig` (e.g., ```touch ~/.dallingerconfig``` under Linux) and put these lines into it:
+
+```
+[Dashboard]
+dashboard_user = admin
+dashboard_password = 12345
+```
+
+Restart the PsyNet server. Then use these credentials to login when asked.
+
+
