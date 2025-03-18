@@ -26,7 +26,7 @@ Chrome should open automatically and display the PsyNet overview page. If not, o
 
 Select the `Development` tab and click `New Participant` to run the experiment.
 
-Note: If you are running an older Linux version and your system Python is very old, you can install `miniconda` and use it to get a more recent Python.
+Note: If you are running an older Linux version and your system Python is very old, you can install [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) and use it to get a more recent Python.
 
 
 ### Other ways of installing
