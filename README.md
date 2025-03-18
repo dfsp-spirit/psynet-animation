@@ -40,11 +40,11 @@ For more information about PsyNet, see the [documentation website](https://psyne
 
 ## Troubleshooting hints
 
-#### Problem: I am being asked for a password when manually connecting to the PsyNet overview page at http://localhost:5000.
+#### Problem: I am being asked for credentials I don't know when manually connecting to the PsyNet overview page at http://localhost:5000.
 
-Solution: PsyNet sets a suer and password and starts Chrome in a way that provides these credentials. If you connect manually, you will be asked for this information. The easiest way to get the information is to define it yourself in the config file `~/.dallingerconfig` like this:
+Solution: PsyNet uses a user and password to protect its overview page and provides these credentials to Chrome automatically on startup. If you connect manually, you will be asked for this information. The easiest way to get the information is to define it yourself in the config file `~/.dallingerconfig` like this:
 
-Create the file `~/.dallingerconfig` (e.g., ```touch ~/.dallingerconfig``` under Linux) and put these lines into it:
+Create the file `~/.dallingerconfig` and put these lines into it (it's in INI format):
 
 ```
 [Dashboard]
