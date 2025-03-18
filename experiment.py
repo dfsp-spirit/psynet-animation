@@ -29,18 +29,22 @@ class Exp(psynet.experiment.Experiment):
     label = "Graphics demo"
 
     # asset_storage = S3Storage("psynet-tests", "graphics")
+    #imgdir = "/animations"
     imgdir = "/static"
 
-    timeline = Timeline(
-        NoConsent(),
-        InfoPage(
+    consentPage = NoConsent()
+    infoPage = InfoPage(
             "Graphic components provide a way to display interactive visual animations to the participant.",
             time_estimate=5,
-        ),
+        )
+
+    timeline = Timeline(
+        consentPage,
+        #infoPage,
         ModularPage(
             "graphic",
             prompt=Prompt(
-                text="Leandra7 Singing Bird but with Animated PNG das reinfährt!",
+                text="Click the green bird!",
             ),
             control=GraphicControl(
                 dimensions=[200, 200],
@@ -48,44 +52,30 @@ class Exp(psynet.experiment.Experiment):
 
                 frames=[
                     Frame(
-                        [Image( "AnimatedPNG", media_id="Apng",
+                        [Image("Gray", media_id="birdgray",
                                 persist=True,
-                                x=100,  # Adjust as necessary for centering
-                                y=100,  # Adjust as necessary for centering
-                                width=200,  # Set to the width of your viewport
-                                height=200,  # Set to the height of your viewport
+                                x=100,
+                                y=100,
+                                width=200,
+                                height=200,
                                 anchor_x=0.5,
                                 anchor_y=0.5,
-                            ),
-
-                         Image( "background_image_id", media_id="background_image",
-                                persist=True,
-                                x=100,  # Adjust as necessary for centering
-                                y=100,  # Adjust as necessary for centering
-                                width=200,  # Set to the width of your viewport
-                                height=200,  # Set to the height of your viewport
-                                anchor_x=0.5,
-                                anchor_y=0.5,
-                            ),
-
-                            Image( "AnimatedPNGG", media_id="Apng",
-                                persist=True,
-                                x=50,  # Adjust as necessary for centering
-                                y=50,  # Adjust as necessary for centering
-                                width=100,  # Set to the width of your viewport
-                                height=100,  # Set to the height of your viewport
-                                anchor_x=0.5,
-                                anchor_y=0.5,
-                            ),
-
-                        Image( "birdONE", media_id="logorr",
-                                x=200,
-                                y=50,
-                                width=50,
-                                click_to_answer=True,
                                 animations=[
                                     Animation({"x":75 }, duration=2 ),
-                                    #Animation( {"x": 100,"hide": False }, duration=2 ),
+                                ],
+
+                            ),
+
+                         Image("Green", media_id="birdgreen",
+                                persist=True,
+                                x=500,
+                                y=100,
+                                width=200,
+                                height=200,
+                                anchor_x=0.5,
+                                anchor_y=0.5,
+                                animations=[
+                                    Animation({"x":300 }, duration=2 ),
                                 ],
                             ),
                         ],
@@ -94,15 +84,13 @@ class Exp(psynet.experiment.Experiment):
                 ],
                 loop=True,
                 media=MediaSpec(
-                    image=dict(
-                        logo=f"{imgdir}/logo.png",
-                        logorr="/static/Birdie-APNG.png",
-                        background_image="/static/World_1-FG.png",
-                        Apng="static/TransparentA.png")
-                    ),
-
+                    image={ # Use the keys of this dict as 'media_id' to refer to images in frames above
+                        "birdgray" : f"{imgdir}/birdgray_animated.png",
+                        "birdgreen" : f"{imgdir}/birdgreen_animated.png",
+                        "birdorange" : f"{imgdir}/birdorange_animated.png",
+                    },
+                ),
             ),
             time_estimate=5,
-        ),
-        DebugResponsePage(),
+        )
     )

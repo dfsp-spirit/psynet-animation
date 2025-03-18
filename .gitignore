@@ -208,3 +208,5 @@ develop/
 deploy/
 deploy_logs/
 
+static/index.html
+

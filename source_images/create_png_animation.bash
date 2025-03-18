@@ -9,7 +9,7 @@
 #
 #
 
-output_dir="../animations"
+output_dir="../static"
 
 echo "Generating animated PNG files from individual frames."
 echo "Will save output to directory: ${output_dir}"
