@@ -30,8 +30,8 @@ class Exp(psynet.experiment.Experiment):
 
     # asset_storage = S3Storage("psynet-tests", "graphics")
     imgdir = "/static"
-    graphic_width = 200,
-    graphic_height = 200,
+    graphic_width = 100
+    graphic_height = 100
 
     consentPage = NoConsent()
     infoPage = InfoPage(
@@ -48,7 +48,7 @@ class Exp(psynet.experiment.Experiment):
                 text="Click the green bird!",
             ),
             control=GraphicControl(
-                dimensions=[200, 200],
+                dimensions=[graphic_width, graphic_height],
                 viewport_width=1,
 
                 frames=[
@@ -60,11 +60,11 @@ class Exp(psynet.experiment.Experiment):
                                 ),
                             Image("Gray", media_id="birdgray",
                                     persist=True,
-                                    x=100,
-                                    y=100,
-                                    width=200,
+                                    x=10,
+                                    y=50,
+                                    width=20,
                                     animations=[
-                                        Animation({"x":50 }, duration=2 ),
+                                        Animation({"x":40 }, duration=2.0),
                                     ],
                                     #loop_animations=True,
 
@@ -72,17 +72,16 @@ class Exp(psynet.experiment.Experiment):
 
                             Image("Green", media_id="birdgreen",
                                     persist=True,
-                                    x=50,
+                                    x=90,
                                     y=50,
-                                    width=100,
+                                    width=20,
                                     click_to_answer=True,
-
-                                    #animations=[
-                                    #    Animation({"x":55 }, duration=2 ),
-                                    #],
+                                    animations=[
+                                        Animation({"x":55 }, duration=3.0),
+                                    ],
                                 ),
                         ],
-                        #duration=20.0,
+                        duration=5.0,
                     ),
 
                 ],
