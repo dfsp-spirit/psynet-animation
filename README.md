@@ -29,7 +29,7 @@ Select the `Development` tab and click `New Participant` to run the experiment.
 Note: If you are running an older Linux version and your system Python is very old, you can install `miniconda` and use it to get a more recent Python.
 
 
-### Other way of installing
+### Other ways of installing
 
 If you need to run this under Windows, please follow the full PsyNet installation instructions, available in [docs/INSTALL.md](./docs/INSTALL.md). In that case, you will also want to have a look at the list of run commands in [docs/RUN.md](./docs/RUN.md).
 
