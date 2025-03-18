@@ -24,6 +24,22 @@ from psynet.page import DebugResponsePage, InfoPage
 from psynet.timeline import MediaSpec, Timeline
 from psynet.consent import NoConsent
 
+from typing import List, Dict
+
+
+def get_image_dict(colors: List[str], imgdir: str) -> Dict[str, str]:
+
+    if not isinstance(colors, list):
+        raise ValueError("colors must be a list")
+    if not isinstance(imgdir, str):
+        raise ValueError("imgdir must be a string")
+
+    image = {}
+    for color in colors:
+        image[f"bird{color}_singing"] = f"{imgdir}/bird{color}_singing.png"
+        image[f"bird{color}_sitting"] = f"{imgdir}/bird{color}_sitting.png"
+    return image
+
 
 class Exp(psynet.experiment.Experiment):
     label = "Graphics demo"
@@ -52,46 +68,122 @@ class Exp(psynet.experiment.Experiment):
                 viewport_width=1,
 
                 frames=[
+                    # The birds start at the left and right.
+                    # They move towards the center (and close to each other).
                     Frame(
                         [
-                            Circle(
-                                    "circle2",95,10,radius=2,
-                                    attributes={"fill": "rgb(255,180,90)"},
-                                ),
-                            Image("Gray", media_id="birdgray",
-                                    persist=True,
-                                    x=10,
-                                    y=50,
-                                    width=20,
-                                    animations=[
-                                        Animation({"x":40 }, duration=2.0),
-                                    ],
-                                    #loop_animations=True,
+                            Image("gray_sit", media_id="birdgray_sitting",
+                                persist=False,
+                                x=10,
+                                y=50,
+                                width=10,
+                                animations=[
+                                    Animation({ "x":40 }, duration=2.0),
+                                ],
+                                loop_animations=False,
+                            ),
 
-                                ),
-
-                            Image("Green", media_id="birdgreen",
-                                    persist=True,
-                                    x=90,
-                                    y=50,
-                                    width=20,
-                                    click_to_answer=True,
-                                    animations=[
-                                        Animation({"x":55 }, duration=3.0),
-                                    ],
-                                ),
+                            Image("green_sit", media_id="birdgreen_sitting",
+                                persist=False,
+                                x=90,
+                                y=50,
+                                width=10,
+                                click_to_answer=True,
+                                animations=[
+                                    Animation({"x":55 }, duration=3.0),
+                                ],
+                            ),
                         ],
-                        duration=5.0,
+                        duration=4.0,
                     ),
+                    # The birds start singing together.
+                    # They move up and down a little bit.
+                    Frame(
+                        [
+                            Image("gray_sing", media_id="birdgray_singing",
+                                persist=False,
+                                x=40,
+                                y=50,
+                                width=10,
+                                animations=[
+                                    Animation({"y": 52 }, duration=1.0),
+                                    Animation({"y": 50 }, duration=1.0),
+                                ],
+                                loop_animations=True,
+                            ),
+                            Image("green_sing", media_id="birdgreen_singing",
+                                persist=False,
+                                x=55,
+                                y=50,
+                                width=10,
+                                click_to_answer=True,
+                                animations=[
+                                    Animation({"y": 52 }, duration=1.0),
+                                    Animation({"y": 50 }, duration=1.0),
+                                ],
+                                loop_animations=True,
+                            ),
+                        ],
+                        duration=4.0,
+                    ),
+                    # The birds fly away together, upwards out of the screen.
+                    Frame(
+                        [
+                            Image("gray_fly", media_id="birdgray_sitting",
+                                persist=False,
+                                x=40,
+                                y=50,
+                                width=10,
+                                animations=[
+                                    Animation({"y": -20 }, duration=2.0),
+                                ],
+                                loop_animations=False,
+                            ),
+                            Image("green_fly", media_id="birdgreen_sitting",
+                                persist=False,
+                                x=55,
+                                y=50,
+                                width=10,
+                                click_to_answer=True,
+                                animations=[
+                                    Animation({"y": -20 }, duration=2.0),
+                                ],
+                                loop_animations=False,
+                            ),
+                        ],
+                        duration=3.0,
+                    ),
+                    # The birds come down again and land.
+                    Frame(
+                        [
+                            Image("gray_fly", media_id="birdgray_sitting",
+                                persist=False,
+                                x=20,
+                                y=-20,
+                                width=10,
+                                animations=[
+                                    Animation({"y": 50 }, duration=2.0),
+                                ],
+                                loop_animations=False,
+                            ),
+                            Image("green_fly", media_id="birdgreen_sitting",
+                                persist=False,
+                                x=80,
+                                y=-20,
+                                width=10,
+                                click_to_answer=True,
+                                animations=[
+                                    Animation({"y": 50 }, duration=2.0),
+                                ],
+                                loop_animations=False,
+                            ),
+                        ],
+                    )
 
                 ],
                 loop=True,
                 media=MediaSpec(
-                    image={ # Use the keys of this dict as 'media_id' to refer to images in frames above
-                        "birdgray" : f"{imgdir}/birdgray_animated.png",
-                        "birdgreen" : f"{imgdir}/birdgreen_animated.png",
-                        "birdorange" : f"{imgdir}/birdorange_animated.png",
-                    },
+                    image=get_image_dict(["gray", "green"], imgdir),
                 ),
             ),
             time_estimate=5,
