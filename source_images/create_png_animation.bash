@@ -19,10 +19,43 @@ if [ ! -d "$output_dir" ]; then
     exit 1
 fi
 
-for color in "gray" "green" "orange" "purple" "yellow"; do
-    echo "Converting ${color} bird frames to to bird${color}_animated.png"
-    ffmpeg -y -framerate 2 -i bird${color}_frame%d.png -plays 0 -vf "fps=2" -f apng "${output_dir}/bird${color}_animated.png"
+
+#!/bin/bash
+
+colors=("gray" "green" "orange" "purple" "yellow")
+
+# Function to generate HTML
+generate_html() {
+    local colors=("$@")
+    local output_file="${output_dir}/index.html"
+
+    echo "<!DOCTYPE html>" > "$output_file"
+    echo "<html>" >> "$output_file"
+    echo "<head>" >> "$output_file"
+    echo "    <title>Bird Images</title>" >> "$output_file"
+    echo "</head>" >> "$output_file"
+    echo "<body>" >> "$output_file"
+
+    for color in "${colors[@]}"; do
+        filename="bird${color}_animated.png"
+        echo "    <img src=\"$filename\" alt=\"$color bird\"><br>" >> "$output_file"
+    done
+
+    echo "</body>" >> "$output_file"
+    echo "</html>" >> "$output_file"
+
+    echo "HTML file '$output_file' generated successfully."
+}
+
+# Convert frames to animated images
+for color in "${colors[@]}"; do
+    echo "Converting ${color} bird frames to bird${color}_animated.png"
+    ffmpeg -y -framerate 2 -i "bird${color}_frame%d.png" -plays 0 -vf "fps=2" -f apng "bird${color}_animated.png"
 done
+
+# Generate HTML with the colors
+generate_html "${colors[@]}"
+
 
 echo "Script done. Check output above for any errors."
 
