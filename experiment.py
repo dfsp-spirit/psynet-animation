@@ -41,15 +41,15 @@ class Exp(psynet.experiment.Experiment):
 
     timeline = Timeline(
         consentPage,
-        infoPage,
+        #infoPage,
         ModularPage(
             "graphic",
             prompt=Prompt(
                 text="Click the green bird!",
             ),
             control=GraphicControl(
-                dimensions=[graphic_width, graphic_height],
-                viewport_width=0.8,
+                dimensions=[200, 200],
+                viewport_width=1,
 
                 frames=[
                     Frame(
@@ -60,34 +60,30 @@ class Exp(psynet.experiment.Experiment):
                                 ),
                             Image("Gray", media_id="birdgray",
                                     persist=True,
-                                    x=10,
-                                    y=10,
+                                    x=100,
+                                    y=100,
                                     width=200,
-                                    height=200,
-                                    #anchor_x=0.5,
-                                    #anchor_y=0.5,
-                                    #animations=[
-                                    #    Animation({"x":50 }, duration=2 ),
-                                    #],
+                                    animations=[
+                                        Animation({"x":50 }, duration=2 ),
+                                    ],
                                     #loop_animations=True,
 
                                 ),
 
                             Image("Green", media_id="birdgreen",
                                     persist=True,
-                                    x=100,
-                                    y=100,
-                                    width=50,
-                                    height=50,
-                                    #anchor_x=0.5,
-                                    #anchor_y=0.5,
+                                    x=50,
+                                    y=50,
+                                    width=100,
+                                    click_to_answer=True,
+
                                     #animations=[
                                     #    Animation({"x":55 }, duration=2 ),
                                     #],
                                 ),
                         ],
-                        duration=20.0,
-                                              ),
+                        #duration=20.0,
+                    ),
 
                 ],
                 loop=True,
