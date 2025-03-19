@@ -22,6 +22,13 @@ const puppeteer = require('puppeteer');
 
     await page.goto(svgFile);
 
+    // Set viewport size based on SVG dimensions to avoid extra whitespace
+    const svgSize = await page.evaluate(() => {
+        const svg = document.querySelector('svg');
+        return { width: svg.width.baseVal.value, height: svg.height.baseVal.value };
+    });
+    await page.setViewport({ width: svgSize.width, height: svgSize.height });
+
     const num_frames = 30; // Number of frames to capture
     const delay = 100; // Delay between frames in ms
 
