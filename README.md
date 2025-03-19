@@ -25,12 +25,12 @@ Then setup the postgres database:
 
 ```sh
 sudo service postgresql start
-sudo -u postgres -i    # opens a new shell as the database user 'postgres'
-createuser -P dallinger --createdb  # add DB user dallinger with createDB permission. When asked for new password, enter 'dallinger' (twice).
-createdb -O dallinger dallinger    # create database dallinger owned by user dallinger
+sudo -u postgres -i                  # opens a new shell as the database user 'postgres'
+createuser -P dallinger --createdb   # add DB user dallinger with createDB permission. When asked for new password, enter 'dallinger' (twice).
+createdb -O dallinger dallinger      # create database dallinger owned by user dallinger
 createdb -O dallinger dallinger-import   # create database dallinger-import owned by user dallinger
-exit  # exits the shell of user postgres, so you are back to your user
-sudo service postgresql reload  # important to apply configuration
+exit                                     # exits the shell of user postgres, so you are back to your user
+sudo service postgresql reload           # apply configuration
 ```
 
 Now install the experiment from this repo, which will install dependencies like the PsyNet and Dallinger python packages:
@@ -41,7 +41,7 @@ cd psynet-animation/
 python -m venv venv
 source venv/bin/activate
 pip install -r constraints.txt    # This will get you PsyNet, Dallinger and their dependencies
-psynet debug local   # opens your Chrome webbrowser.
+psynet debug local                # starts PsyNet server and opens connection to it in your Chrome webbrowser.
 ```
 
 Chrome should open automatically and display the PsyNet overview page. If not, open Chrome manually and connect to [localhost:5000](http://localhost:5000).
