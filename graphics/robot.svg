@@ -9,6 +9,7 @@
     <!-- Standing Robot -->
     <g transform="translate(150, 100)">
         <g id="robotHead">
+            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="0,60,40; -6,60,40; 0,60,40" dur="10s" repeatCount="indefinite"/>
             <!-- Main part pof the head -->
             <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- Main part of the head -->
             <!-- Ears -->
@@ -24,7 +25,11 @@
                 <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Right sphere -->
             </g>
             <!-- Eyes -->
-            <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/> <!-- Left eye -->
+            <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"> <!-- Left eye -->
+            <animate attributeName="r" values="7;5;7" dur="0.5s" begin="0s;5s;10s;15s"/>
+            </circle>
+
+
             <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/> <!-- Right eye -->
             <path d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2"/> <!-- Mouth -->
             <circle cx="60" cy="25" r="2" fill="black"/> <!-- Nose -->
@@ -37,10 +42,20 @@
                 <rect x="0" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/> <!-- Left lower arm -->
                 <g id="leftHand">
                     <!-- left hand fingers -->
-                    <line x1="2" y1="125" x2="-2" y2="135" stroke="gray" stroke-width="5"/> <!-- Left hand left finger upper part -->
-                    <line x1="-2" y1="132" x2="2" y2="145" stroke="gray" stroke-width="5"/> <!-- Left hand left finger lower part -->
-                    <line x1="8" y1="125" x2="12" y2="135" stroke="gray" stroke-width="5"/> <!-- Left hand right finger upper part -->
-                    <line x1="12" y1="132" x2="8" y2="145" stroke="gray" stroke-width="5"/> <!-- Left hand right finger lower part -->
+                    <!-- Left hand fingers -->
+                <line x1="2" y1="120" x2="-2" y2="130" stroke="gray" stroke-width="5"> <!-- Left hand left finger upper part -->
+                    <!-- Finger wiggle animation -->
+                    <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="0,2,120; -5,2,120; 0,2,120" dur="0.5s" begin="0s;7s;14s" fill="freeze"/>
+                </line>
+                <line x1="-2" y1="127" x2="2" y2="140" stroke="gray" stroke-width="5"> <!-- Left hand left finger lower part -->
+                    <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="0,-2,127; -5,-2,127; 0,-2,127" dur="0.5s" begin="0s;7s;14s" fill="freeze"/>
+                </line>
+                <line x1="8" y1="120" x2="12" y2="130" stroke="gray" stroke-width="5"> <!-- Left hand right finger upper part -->
+                    <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="0,8,120; 5,8,120; 0,8,120" dur="0.5s" begin="0s;7s;14s" fill="freeze"/>
+                </line>
+                <line x1="12" y1="127" x2="8" y2="140" stroke="gray" stroke-width="5"> <!-- Left hand right finger lower part -->
+                    <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="0,12,127; 5,12,127; 0,12,127" dur="0.5s" begin="0s;7s;14s" fill="freeze"/>
+                </line>
                     <circle cx="5" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Left hand -->
                 </g>
             </g>
