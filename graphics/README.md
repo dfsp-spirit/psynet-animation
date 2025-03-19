@@ -35,8 +35,10 @@ Name the SVG file you want to convert `robot.svg` and embed the JS function from
   // more SVG content here
 ```
 
-* Run the first script: ```node anim_svg_to_png_frames.js``` # Generates the frames (set of non-animated PNG files)
-* Run ffmpeg script: ```./png_frames_to_apng.bash```         # Combines all PNG frames into a single APNG
+* Run the first script: ```node anim_svg_to_png_frames.js```
+    - This generates the frames (a set of non-animated PNG files named `frame_IDX.png`)
+* Run ffmpeg script: ```./png_frames_to_apng.bash```
+*     - This combines all PNG frames into a single APNG file named `animated.png`
 * Delete the frames to avoid potential issues next time you use the scripts: ```rm frame_*.png```
 
 
