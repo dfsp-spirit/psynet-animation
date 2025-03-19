@@ -21,7 +21,7 @@ This can be used under Linux, and with some extra effort under Windows (if you h
 
 ## Usage
 
-Name the SVG file you want to convert `robot.svg` and embed the JS function from the example robot.svg file at the top. Your SVG should start like this:
+Name the SVG file you want to convert `robot.svg` and embed the JS function from the example robot.svg file at the top. Your SVG should start like this if you open it in a text editor:
 
 ```
 <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Name the SVG file you want to convert `robot.svg` and embed the JS function from
 
 * Run the first script: ```node anim_svg_to_png_frames.js```
     - This generates the frames (a set of non-animated PNG files named `frame_IDX.png`)
-* Run ffmpeg script: ```./png_frames_to_apng.bash```
+* Run the ffmpeg script: ```./png_frames_to_apng.bash```
     - This combines all PNG frames into a single APNG file named `animated.png`
 * Delete the frames to avoid potential issues next time you use the scripts: ```rm frame_*.png```
 
