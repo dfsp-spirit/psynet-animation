@@ -6,6 +6,9 @@ This repo demonstrates and provides tools to create interactive animations based
 
 The main part is [a PsyNet experiment](./experiment.py) that creates animations based on APNGs. The user needs to click on certain graphical elements to advance to the next section of the PsyNet timeline. PsyNet provides a Python wrapper around [Raphaël JS](http://raphaeljs.com/) for this.
 
+
+![Psynet Animation](./psynet-animation.gif)
+
 Note: Raphaël is an SVG animation library, but an APNG image can be a component embedded into an SVG file, and it can be animated using Raphaël like any other SVG component.
 
 Thanks to Leandra for the bird images.
