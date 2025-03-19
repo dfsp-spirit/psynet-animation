@@ -13,12 +13,34 @@ We highly recommend to run this under Linux and in a Python virtual environment 
 
 Make sure you have a recent Python version (e.g., Python 3.12) and the Google Chrome browser installed.
 
+Then get python dev packages, a database server and redis. E.g., for Ubuntu 22.04 LTS:
+
+```sh
+sudo apt install vim python3.11-dev python3.11-venv python3-pip redis-server git libenchant-2-2 postgresql postgresql-contrib libpq-dev unzip
+```
+
+For Ubuntu 24.04 LTS, just replace `python3.11-dev python3.11-venv` with `python3.12-dev python3.12-venv`.
+
+Then setup the postgres database:
+
+```sh
+sudo service postgresql start
+sudo -u postgres -i    # opens a new shell as the database user 'postgres'
+createuser -P dallinger --createdb  # add DB user dallinger with createDB permission. When asked for new password, enter 'dallinger' (twice).
+createdb -O dallinger dallinger    # create database dallinger owned by user dallinger
+createdb -O dallinger dallinger-import   # create database dallinger-import owned by user dallinger
+exit  # exits the shell of user postgres, so you are back to your user
+sudo service postgresql reload  # important to apply configuration
+```
+
+Now install the experiment from this repo, which will install dependencies like the PsyNet and Dallinger python packages:
+
 ```sh
 git clone https://github.com/dfsp-spirit/psynet-animation.git
 cd psynet-animation/
 python -m venv venv
 source venv/bin/activate
-pip install -r constraints.txt
+pip install -r constraints.txt    # This will get you PsyNet, Dallinger and their dependencies
 psynet debug local   # opens your Chrome webbrowser.
 ```
 
