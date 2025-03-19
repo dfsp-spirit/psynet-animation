@@ -3,25 +3,25 @@
     <g transform="translate(150, 100)">
         <g id="robotHead">
             <!-- Main part pof the head -->
-            <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
+            <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- Main part of the head -->
             <!-- Ears -->
             <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Left ear -->
             <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right ear -->
             <!-- Antennas -->
-            <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2"/> <!-- Left antenna -->
-            <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2"/> <!-- Right antenna -->
-            <!-- Small spheres on top of antennas -->
-            <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Left sphere -->
-            <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Right sphere -->
+            <g id="leftEarAntenna">
+                <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2"/> <!-- Left antenna -->
+                <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Left sphere -->
+            </g>
+            <g id="rightEarAntenna">
+                <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2"/> <!-- Right antenna -->
+                <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Right sphere -->
+            </g>
             <!-- Eyes -->
-            <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/>
-            <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/>
-            <!-- Mouth -->
-            <path d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2"/>
-            <!-- Nose -->
-            <circle cx="60" cy="25" r="2" fill="black"/>
-            <!-- Neck -->
-            <rect x="50" y="60" width="20" height="10" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2"/>
+            <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/> <!-- Left eye -->
+            <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/> <!-- Right eye -->
+            <path d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2"/> <!-- Mouth -->
+            <circle cx="60" cy="25" r="2" fill="black"/> <!-- Nose -->
+            <rect x="50" y="60" width="20" height="15" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2"/> <!-- Neck -->
         </g>
         <g id="robotCenter" transform="translate(0, 10)">
             <g id="leftArm">
@@ -94,18 +94,27 @@
     <!-- Walking Robot -->
   <g transform="translate(400, 100)">
     <g id="robotHead">
-      <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-      <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
-      <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
-      <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2"/>
-      <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2"/>
-      <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/>
-      <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/>
-      <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/>
-      <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/>
-      <path d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2"/>
-      <circle cx="60" cy="25" r="2" fill="black"/>
-      <rect x="50" y="60" width="20" height="10" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2"/>
+    <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="-2,40,160; 2,40,160; -2,40,160" dur="1s" repeatCount="indefinite"/>
+        <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- Main part of the head -->
+        <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>  <!-- Left ear -->
+        <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>  <!-- Right ear -->
+        <g id="leftEarAntenna">
+            <!-- add animation of antenna moving left and right. it should stay attached to the ear on the lowest part of the antenna. -->
+            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="-10,25,20; 10,25,20; -10,25,20" dur="1s" repeatCount="indefinite"/>
+            <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2"/> <!-- Left antenna -->
+            <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Left sphere -->
+       </g>
+        <g id="rightEarAntenna">
+            <!-- add animation of antenna moving left and right. it should stay attached to the ear on the lowest part of the antenna. -->
+            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="10,95,20; -10,95,20; 10,95,20" dur="1s" repeatCount="indefinite"/>
+            <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2"/> <!-- Right antenna -->
+            <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2"/> <!-- Right sphere -->
+        </g>
+        <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/> <!-- Left eye -->
+        <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/> <!-- Right eye -->
+        <path d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2"/> <!-- Mouth -->
+        <circle cx="60" cy="25" r="2" fill="black"/> <!-- Nose -->
+        <rect x="50" y="60" width="20" height="15" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2"/> <!-- Neck -->
     </g>
     <g id="robotCenter" transform="translate(0, 10)">
       <g id="leftArm" transform="rotate(-10,10,75)">
