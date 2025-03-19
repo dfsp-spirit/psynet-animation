@@ -22,10 +22,10 @@ const puppeteer = require('puppeteer');
 
     await page.goto(svgFile);
 
-    const frames = 30; // Number of frames to capture
+    const num_frames = 30; // Number of frames to capture
     const delay = 100; // Delay between frames in ms
 
-    for (let i = 0; i < frames; i++) {
+    for (let i = 0; i < num_frames; i++) {
         await page.screenshot({ path: `frame_${i.toString().padStart(3, '0')}.png`, omitBackground: true });
         await page.evaluate(() => new Promise(requestAnimationFrame)); // Advance one frame
         await new Promise(resolve => setTimeout(resolve, delay)); // Fixed timeout function
