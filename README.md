@@ -1,9 +1,12 @@
 # PsyNet APNG Animation Test
 
-This experiment is implemented using the [PsyNet framework](https://www.psynet.dev/). It demonstrates how to create
-interactive animations based on images in Animated Portable Network Graphics format (APNG, see [Wikipedia article on APNG here](https://en.wikipedia.org/wiki/APNG)).
+This is a psychological remote experiment implemented using the [PsyNet framework](https://www.psynet.dev/).
 
+This repo demonstrates and provides tools to create interactive animations based on images in Animated Portable Network Graphics format (APNG, see [Wikipedia article on APNG here](https://en.wikipedia.org/wiki/APNG)). There are scripts to [generate an APNG from a selection of standard PNGs](./source_images/), and a script to [transform an animated SVG into an APNG](./graphics/).
 
+The main part is [a PsyNet experiment](./experiment.py) that creates animations based on APNGs. The user needs to click on certain graphical elements to advance to the next section of the PsyNet timeline.
+
+Thanks to Leandra for the bird images.
 
 ## Installing PsyNet and preparing to run this experiment
 
