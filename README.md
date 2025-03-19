@@ -8,6 +8,7 @@ The main part is [a PsyNet experiment](./experiment.py) that creates animations 
 
 
 ![Psynet Animation](./psynet-animation.gif)
+*Screen capture gif created with [peek](https://github.com/phw/peek) under Linux.*
 
 Note: Raphaël is an SVG animation library, but an APNG image can be a component embedded into an SVG file, and it can be animated using Raphaël like any other SVG component.
 
