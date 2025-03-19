@@ -1,6 +1,9 @@
 # Graphics -- Creating an animated PNG image from an animated SVG
 
 
+![Animated Preview](./animated.png)
+
+
 The tools in this directory convert an animated SVG file to an animated PNG file.
 
 This is a two-step process:
