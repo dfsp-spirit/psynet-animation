@@ -217,9 +217,10 @@
         <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2"/> <!-- Left eye -->
         <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2"/> <!-- Right eye -->
         <!-- Mouth opening and closing -->
-        <path id="robotMouth" d="M 48 38 Q 60 45 75 30" fill="none" stroke="black" stroke-width="2">
-            <animate attributeName="d" dur="0.5s" repeatCount="indefinite" values="M 48 38 Q 60 45 75 30; M 48 38 Q 60 55 75 30; M 48 38 Q 60 45 75 30"/>
-        </path>
+        <!-- New Mouth: Warping Ellipse -->
+        <ellipse id="robotMouth" cx="60" cy="40" rx="12" ry="8" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2">
+            <animate attributeName="ry" dur="0.5s" repeatCount="indefinite" values="5;8;5"/>
+        </ellipse>
         <circle cx="60" cy="25" r="2" fill="black"/> <!-- Nose -->
         <rect x="50" y="60" width="20" height="15" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="2"/> <!-- Neck -->
     </g>
