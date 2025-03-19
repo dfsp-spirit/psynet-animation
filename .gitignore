@@ -209,4 +209,4 @@ deploy/
 deploy_logs/
 
 static/index.html
-
+graphics/node_modules/

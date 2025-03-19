@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    </style>
+</head>
+<body>
+    <embed id="svgEmbed" src="robot.svg" type="image/svg+xml" width="300" height="300">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const embed = document.getElementById("svgEmbed");
+            embed.addEventListener("load", () => {
+                const svgDoc = embed.getSVGDocument();
+                if (svgDoc) {
+                    window.setAnimationTime = (time) => {
+                        svgDoc.documentElement.setCurrentTime(time);
+                    };
+                }
+            });
+        });
+    </script>
+</body>
+</html>
