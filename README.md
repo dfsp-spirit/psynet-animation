@@ -4,7 +4,9 @@ This is a psychological remote experiment implemented using the [PsyNet framewor
 
 This repo demonstrates and provides tools to create interactive animations based on images in Animated Portable Network Graphics format (APNG, see [Wikipedia article on APNG here](https://en.wikipedia.org/wiki/APNG)). There are scripts to [generate an APNG from a selection of standard PNGs](./source_images/), and a script to [transform an animated SVG into an APNG](./graphics/).
 
-The main part is [a PsyNet experiment](./experiment.py) that creates animations based on APNGs. The user needs to click on certain graphical elements to advance to the next section of the PsyNet timeline.
+The main part is [a PsyNet experiment](./experiment.py) that creates animations based on APNGs. The user needs to click on certain graphical elements to advance to the next section of the PsyNet timeline. PsyNet provides a Python wrapper around [Raphaël JS](http://raphaeljs.com/) for this.
+
+Note: Raphaël is an SVG animation library, but an APNG image can be a component embedded into an SVG file, and it can be animated using Raphaël like any other SVG component.
 
 Thanks to Leandra for the bird images.
 
