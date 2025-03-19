@@ -227,7 +227,7 @@
     <g id="robotCenter" transform="translate(0, 10)">
         <!-- Left arm swinging slightly -->
         <g id="leftArm" transform="rotate(-5,10,75)">
-            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="-5,10,75; 5,10,75; -5,10,75" dur="2s" repeatCount="indefinite"/>
+            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="-3,10,75; 3,10,75; -3,10,75" dur="2s" repeatCount="indefinite"/>
             <rect x="10" y="75" width="10" height="10" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
             <rect x="-5" y="70" width="20" height="20" rx="5" ry="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
             <rect x="0" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
@@ -242,7 +242,7 @@
         </g>
         <!-- Right arm swinging slightly -->
         <g id="rightArm" transform="rotate(5,100,75)">
-            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="5,100,75; -5,100,75; 5,100,75" dur="2s" repeatCount="indefinite"/>
+            <animateTransform attributeType="XML" attributeName="transform" type="rotate" values="3,100,75; -3,100,75; 3,100,75" dur="2s" repeatCount="indefinite"/>
             <rect x="100" y="75" width="10" height="10" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
             <rect x="105" y="70" width="20" height="20" rx="5" ry="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
             <rect x="110" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
@@ -283,4 +283,7 @@
         </g>
     </g>
 </g>
+
+
+
 </svg>
