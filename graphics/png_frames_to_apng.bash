@@ -35,3 +35,4 @@ fi
 output_file="animated.png"
 echo "Converting frames to ${output_file} with framerate ${fps_anim}..."
 ffmpeg -y -framerate $fps_anim -i "frame_%3d.png" -plays 0 -vf "fps=${fps_anim}" -f apng "${output_file}"
+echo "Conversion complete. Check output file, e.g., 'firefox ${output_file}'"

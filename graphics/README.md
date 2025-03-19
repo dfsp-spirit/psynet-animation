@@ -31,6 +31,6 @@ Name the SVG file you want to convert robot.svg and embed the JS function from t
 * Run the first script: ```node anim_svg_to_png_frames.js``` # Generates the frames (set of non-animated PNG files)
 * Run ffmpeg script: ```./png_frames_to_apng.bash```         # Combines PNG frames into a single APNG
 
-You may want to adapt the framerate in the ffmpeg script.
+Note: You may want to adapt the framerate in the ffmpeg script. To do that, pass it as first command line argument, e.g.: ```./png_frames_to_apng.bash 5``` for five frames per second.
 
-The ffmpeg script creates a file named `animated.png`. Make sure to view this APNG file in a suitable application, like Firefox or Chrome. Software like MS Paint will not display the animation.
+The ffmpeg script creates an output file named `animated.png`. Make sure to view this APNG file in a suitable application, like Firefox or Chrome. Software like MS Paint will not display the animation.
