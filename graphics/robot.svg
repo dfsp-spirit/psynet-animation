@@ -98,20 +98,15 @@
             </g>
 
             <g id="robotTorso">
-                <!-- Lowest, central part of torso where legs are attached. Drawn before upper one for z order. -->
-                <rect x="50" y="120" width="20" height="60" rx="5" ry="5" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
+                <rect x="50" y="120" width="20" height="60" rx="5" ry="5" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- lower part where legs are attached -->
+                <rect x="30" y="100" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>  <!-- middle part of torso: stomach -->
 
-
-                <!-- Lower torso (stomach). Drawn before upper one for z order. -->
-                <rect x="30" y="100" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-                <!-- Upper torso (ripcage) -->
-                <rect x="20" y="60" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-                <!-- A small decorative rectangular area on the upper right part of the torso, similar to a name badge or something -->
-                <rect x="70" y="70" width="20" height="10" rx="2" ry="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
-                <!-- A small screw (circle) in lower left corner of the upper torso -->
-                <circle cx="30" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
-                <!-- Same screw on the right side -->
-                <circle cx="90" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
+                <g id="chest">
+                    <rect x="20" y="60" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- upper part of torso: chest -->
+                    <rect x="70" y="70" width="20" height="10" rx="2" ry="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- decorative rectangle on the upper right part of the torso -->
+                    <circle cx="30" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- small screw in lower left corner of the upper torso -->
+                    <circle cx="90" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- small screw in lower right corner of the upper torso -->
+                </g>
             </g>
 
         </g>
@@ -203,19 +198,16 @@
     </g>
 
         <g id="robotTorso">
-                <!-- Lowest, central part of torso where legs are attached. Drawn before upper one for z order. -->
-                <rect x="50" y="120" width="20" height="60" rx="5" ry="5" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-                <!-- Lower torso (stomach). Drawn before upper one for z order. -->
-                <rect x="30" y="100" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-                <!-- Upper torso (ripcage) -->
-                <rect x="20" y="60" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>
-                <!-- A small decorative rectangular area on the upper right part of the torso, similar to a name badge or something -->
-                <rect x="70" y="70" width="20" height="10" rx="2" ry="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
-                <!-- A small screw (circle) in lower left corner of the upper torso -->
-                <circle cx="30" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
-                <!-- Same screw on the right side -->
-                <circle cx="90" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/>
+            <rect x="50" y="120" width="20" height="60" rx="5" ry="5" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- lower part where legs are attached -->
+            <rect x="30" y="100" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/>  <!-- middle part of torso: stomach -->
+
+            <g id="chest">
+                <rect x="20" y="60" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)" stroke="black" stroke-width="2"/> <!-- upper part of torso: chest -->
+                <rect x="70" y="70" width="20" height="10" rx="2" ry="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- decorative rectangle on the upper right part of the torso -->
+                <circle cx="30" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- small screw in lower left corner of the upper torso -->
+                <circle cx="90" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- small screw in lower right corner of the upper torso -->
             </g>
+        </g>
 
       <g id="robotLegs" transform="translate(0, 10)">
         <g id="leftLeg" transform="rotate(-10,40,160)">
