@@ -80,21 +80,32 @@
                 <rect x="110" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/> <!-- Right lower arm -->
                 <g id="rightHand">
                     <!-- right hand fingers -->
-                    <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
-                    <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
+                    <g id="rightHandleftFinger">
 
+                        <g id="rightHandLeftFingerLowerPart">
+                            <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
+                            <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
+                        </g>
+                        <g id="rightHandLeftFingerUpperPart">
+                            <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
+                            <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
+                        </g>
+                    </g>
 
-                    <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
-                    <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
+                    <g id="rightHandRightFinger">
 
-                    <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
-                    <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
+                        <g id="rightHandRightFingerLowerPart">
+                            <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
+                            <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
+                        </g>
+                        <g id="rightHandRightFingerUpperPart">
+                            <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
+                            <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
+                        </g>
+                    </g>
 
-                    <!-- Spheres as hands. Drawn after fingers for z order. -->
-                    <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
-                    <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
-
-                    <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand -->
+                    <!-- Sphere as hand. Drawn after fingers for z order. -->
+                    <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand main part where fingers are attached -->
                 </g>
 
             </g>
@@ -177,7 +188,6 @@
         <rect x="0" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
         <g id="leftHand">
             <!-- Left hand fingers -->
-            <!-- Left hand fingers -->
                 <g id="leftHandleftFinger">
 
                     <g id="leftHandLeftFingerLowerPart">
@@ -214,17 +224,33 @@
         <rect x="105" y="70" width="20" height="20" rx="5" ry="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
         <rect x="110" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
         <g id="rightHand">
-            <!-- Right hand fingers -->
-            <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
-            <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
-            <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
+        <!-- right hand fingers -->
+                    <g id="rightHandleftFinger">
 
-            <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
-            <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
-            <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
-            <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
-            <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
-            <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand -->
+                <g id="rightHandLeftFingerLowerPart">
+                    <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
+                    <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
+                </g>
+                <g id="rightHandLeftFingerUpperPart">
+                    <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
+                    <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
+                </g>
+            </g>
+
+            <g id="rightHandRightFinger">
+
+                <g id="rightHandRightFingerLowerPart">
+                    <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
+                    <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
+                </g>
+                <g id="rightHandRightFingerUpperPart">
+                    <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
+                    <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
+                </g>
+            </g>
+
+            <!-- Sphere as hand. Drawn after fingers for z order. -->
+            <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand main part where fingers are attached -->
         </g>
     </g>
 
@@ -355,17 +381,33 @@
             <rect x="105" y="70" width="20" height="20" rx="5" ry="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/>
             <rect x="110" y="90" width="10" height="30" rx="2" ry="2" fill="rgb(148, 167, 203)" stroke="black" stroke-width="1"/>
             <g id="rightHand">
-                <!-- Right hand fingers -->
-                <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
-                <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
-                <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
+            <!-- right hand fingers -->
+                    <g id="rightHandleftFinger">
 
-                <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
-                <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
-                <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
-                <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
-                <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
-                <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand -->
+                        <g id="rightHandLeftFingerLowerPart">
+                            <line x1="108" y1="132" x2="112" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand left finger lower part -->
+                            <circle cx="112" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of left finger of the right hand -->
+                        </g>
+                        <g id="rightHandLeftFingerUpperPart">
+                            <line x1="112" y1="125" x2="108" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand left finger upper part -->
+                            <circle cx="108" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of left finger of the right hand -->
+                        </g>
+                    </g>
+
+                    <g id="rightHandRightFinger">
+
+                        <g id="rightHandRightFingerLowerPart">
+                            <line x1="122" y1="132" x2="118" y2="145" stroke="gray" stroke-width="5"/> <!-- Right hand right finger lower part -->
+                            <circle cx="118" cy="145" r="2" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Fingertip of right finger of the right hand -->
+                        </g>
+                        <g id="rightHandRightFingerUpperPart">
+                            <line x1="118" y1="125" x2="122" y2="135" stroke="gray" stroke-width="5"/> <!-- Right hand right finger upper part -->
+                            <circle cx="122" cy="135" r="3" fill="rgb(217, 167, 81)" stroke="black" stroke-width="1"/> <!-- Small circle as joint between parts of right finger of the right hand -->
+                        </g>
+                    </g>
+
+                    <!-- Sphere as hand. Drawn after fingers for z order. -->
+                    <circle cx="115" cy="120" r="10" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2"/> <!-- Right hand main part where fingers are attached -->
             </g>
         </g>
         <g id="robotTorso">
