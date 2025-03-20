@@ -12,24 +12,25 @@
             <animateTransform attributeType="XML" attributeName="transform" type="rotate"
                 values="0,60,40; -6,60,40; 0,60,40" dur="10s" repeatCount="indefinite" />
             <!-- Main part pof the head -->
-            <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
+            <rect x="20" y="0" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
                 stroke="black" stroke-width="2" /> <!-- Main part of the head -->
             <!-- Ears -->
-            <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
+            <circle cx="15" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Left ear -->
-            <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
+            <circle cx="105" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Right ear -->
             <!-- Antennas -->
             <g id="leftEarAntenna">
-                <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
+                <line x1="15" y1="15" x2="10" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
                 antenna -->
-                <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="10" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Left sphere -->
             </g>
             <g id="rightEarAntenna">
-                <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2" /> <!-- Right
+                <line x1="105" y1="15" x2="110" y2="-10" stroke="black" stroke-width="2" /> <!--
+                Right
                 antenna -->
-                <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="110" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Right sphere -->
             </g>
             <!-- Eyes -->
@@ -237,32 +238,35 @@
         <g id="robotHead">
             <animateTransform attributeType="XML" attributeName="transform" type="rotate"
                 values="-2,40,160; 2,40,160; -2,40,160" dur="1s" repeatCount="indefinite" />
-            <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
+
+            <!-- Main part pof the head -->
+            <rect x="20" y="0" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
                 stroke="black" stroke-width="2" /> <!-- Main part of the head -->
-            <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" />  <!--
+            <!-- Ears -->
+            <circle cx="15" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Left ear -->
-            <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" />  <!--
+            <circle cx="105" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Right ear -->
+            <!-- Antennas -->
             <g id="leftEarAntenna">
-                <!-- add animation of antenna moving left and right. it should stay attached to the
-                ear on the lowest part of the antenna. -->
                 <animateTransform attributeType="XML" attributeName="transform" type="rotate"
-                    values="-10,25,20; 10,25,20; -10,25,20" dur="1s" repeatCount="indefinite" />
-                <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
+                    values="-10,15,10; 10,15,10; -10,15,10" dur="1s" repeatCount="indefinite" />
+                <line x1="15" y1="15" x2="10" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
                 antenna -->
-                <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="10" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Left sphere -->
             </g>
             <g id="rightEarAntenna">
-                <!-- add animation of antenna moving left and right. it should stay attached to the
-                ear on the lowest part of the antenna. -->
                 <animateTransform attributeType="XML" attributeName="transform" type="rotate"
-                    values="10,95,20; -10,95,20; 10,95,20" dur="1s" repeatCount="indefinite" />
-                <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2" /> <!-- Right
+                    values="10,105,15; -10,105,15; 10,105,15" dur="1s" repeatCount="indefinite" />
+                <line x1="105" y1="15" x2="110" y2="-10" stroke="black" stroke-width="2" /> <!--
+                Right
                 antenna -->
-                <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="110" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Right sphere -->
             </g>
+
+
             <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2" /> <!-- Left
             eye -->
             <circle cx="75" cy="20" r="5" fill="white" stroke="black" stroke-width="2" /> <!-- Right
@@ -471,28 +475,30 @@
             <!-- Head swaying slightly -->
             <animateTransform attributeType="XML" attributeName="transform" type="rotate"
                 values="-1,40,160; 1,40,160; -1,40,160" dur="2s" repeatCount="indefinite" />
-            <rect x="30" y="0" width="60" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
+            <!-- Main part pof the head -->
+            <rect x="20" y="0" width="80" height="60" rx="10" ry="10" fill="rgb(124, 190, 178)"
                 stroke="black" stroke-width="2" /> <!-- Main part of the head -->
-            <circle cx="25" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" />  <!--
+            <!-- Ears -->
+            <circle cx="15" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Left ear -->
-            <circle cx="95" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" />  <!--
+            <circle cx="105" cy="20" r="5" fill="rgb(217, 167, 81)" stroke="black" stroke-width="2" /> <!--
             Right ear -->
+            <!-- Antennas -->
             <g id="leftEarAntenna">
-                <!-- Antenna moving slightly -->
                 <animateTransform attributeType="XML" attributeName="transform" type="rotate"
-                    values="-5,25,20; 5,25,20; -5,25,20" dur="2s" repeatCount="indefinite" />
-                <line x1="25" y1="15" x2="20" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
+                    values="-5,15,10; 5,15,10; -5,15,10" dur="2s" repeatCount="indefinite" />
+                <line x1="15" y1="15" x2="10" y2="-10" stroke="black" stroke-width="2" /> <!-- Left
                 antenna -->
-                <circle cx="20" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="10" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Left sphere -->
             </g>
             <g id="rightEarAntenna">
-                <!-- Antenna moving slightly -->
                 <animateTransform attributeType="XML" attributeName="transform" type="rotate"
-                    values="5,95,20; -5,95,20; 5,95,20" dur="2s" repeatCount="indefinite" />
-                <line x1="95" y1="15" x2="100" y2="-10" stroke="black" stroke-width="2" /> <!-- Right
+                    values="5,105,15; -5,105,15; 5,105,15" dur="2s" repeatCount="indefinite" />
+                <line x1="105" y1="15" x2="110" y2="-10" stroke="black" stroke-width="2" /> <!--
+                Right
                 antenna -->
-                <circle cx="100" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
+                <circle cx="110" cy="-10" r="2" fill="gray" stroke="black" stroke-width="2" /> <!--
                 Right sphere -->
             </g>
             <circle cx="45" cy="20" r="7" fill="white" stroke="black" stroke-width="2" /> <!-- Left
