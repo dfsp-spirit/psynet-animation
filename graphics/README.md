@@ -46,6 +46,6 @@ The ffmpeg script creates an output file named `animated.png`. Make sure to view
 
 ### Customization
 
-* You can adapt the number of frames to capture and the delay between frames in ms in the script node `anim_svg_to_png_frames.js`, see variables `num_frames` and `delay`, respectively.
-* You may want to adapt the output framerate of the APNG file. To do that, pass it as first command line argument to the `png_frames_to_apng.bash` script, e.g.: ```./png_frames_to_apng.bash 5``` for five frames per second.
+* You can adapt the number of frames to capture and the delay between frames in ms when running the script node `anim_svg_to_png_frames.js`. Run it with argument `--help` to see details.
+* You can adapt the output framerate of the APNG file. To do that, pass it as first command line argument to the `png_frames_to_apng.bash` script, e.g.: ```./png_frames_to_apng.bash 5``` for five frames per second.
 
