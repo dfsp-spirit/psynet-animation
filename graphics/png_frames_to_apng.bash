@@ -10,45 +10,63 @@ then
     exit
 fi
 
-# Default values if no command line args given
+
+# Default values
+framerate=2
 output_file="animated.png"
 input_dir="./frames_tmp"
-fps_anim=2  # default frame rate
 
-# read the frame rate from the command line
-if [ -n "$1" ]; then
-    # if $1 is "-h" or "--help", print help message
-    if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+# Function to display help message
+show_help() {
+    echo "Convert a sequence of PNG frames to an animated PNG (APNG) file."
+    echo "----------------------------------------------------------------"
+    echo "Usage: $0 [--framerate <frame_rate>] [--output <output_file>] [--inputdir <input_dir>] [--help]"
+    echo "This script requires ffmpeg to be installed and available on the system path."
+    echo "* --framerate: The number of frames per second in the output animation. Positive integer, defaults to 2."
+    echo "* --output: The name of the output APNG file. Defaults to 'animated.png'."
+    echo "* --inputdir: The directory containing the input PNG frames. Defaults to the current directory. Frames must be named 'frame_001.png', 'frame_002.png', etc. (You can start with index 000 or 001.)"
+    echo "* --help: Show this help message."
+    echo "Example: $0 --framerate 10 --output animation_out.png --inputdir ./frames_tmp"
+    exit
+}
 
-        echo "Convert a sequence of PNG frames to an animated PNG (APNG) file."
-        echo "----------------------------------------------------------------"
-        echo "Usage: $0 [frame_rate [output_file [input_dir]]]"
-        echo "This script requires ffmpeg to be installed and available on the system path."
-        echo "* frame_rate: The number of frames per second in the output animation. Positive integer, defaults to 2."
-        echo "* output_file: The name of the output APNG file. Defaults to 'animated.png'."
-        echo "* input_dir: The directory containing the input PNG frames. Defaults to the current directory. Frames must be named 'frame_001.png', 'frame_002.png', etc. (You can start with index 000 or 001.)"
-        echo "Example: $0 10 animation_out.png ./frames_tmp"
-        exit
-    fi
+# Parse named arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --framerate)
+            if [[ "$2" =~ ^[0-9]+$ ]]; then
+                framerate="$2"
+                shift
+            else
+                echo "Error: The frame rate must be a positive integer."
+                exit 1
+            fi
+            ;;
+        --output)
+            output_file="$2"
+            shift
+            ;;
+        --inputdir)
+            input_dir="$2"
+            shift
+            ;;
+        --help)
+            show_help
+            ;;
+        *)
+            echo "Unknown parameter: $1"
+            show_help
+            ;;
+    esac
+    shift
+done
 
-    # check if the input is a positive integer
-    if ! [[ "$1" =~ ^[0-9]+$ ]]; then
-        echo "Error: The frame rate must be a positive integer."
-        exit
-    fi
-    if [ -n "$2" ]; then
-        output_file="$2"
-    fi
-    if [ -n "$3" ]; then
-        input_dir="$3"
-    else
-        input_dir="."
-    fi
-
-    fps_anim="$1"
-fi
+# Print the parsed arguments for debugging
+echo "Frame rate: $framerate"
+echo "Output file: $output_file"
+echo "Input directory: $input_dir"
 
 
-echo "Converting frames in directory '${input_dir}' to output file '${output_file}' with framerate ${fps_anim}..."
-ffmpeg -y -framerate $fps_anim -i "${input_dir}/frame_%3d.png" -plays 0 -vf "fps=${fps_anim}" -f apng "${output_file}"
+echo "Converting frames in directory '${input_dir}' to output file '${output_file}' with framerate ${framerate}..."
+ffmpeg -y -framerate $framerate -i "${input_dir}/frame_%3d.png" -plays 0 -vf "fps=${framerate}" -f apng "${output_file}"
 echo "Conversion complete. Check output file, e.g. run: 'firefox ${output_file}'"
