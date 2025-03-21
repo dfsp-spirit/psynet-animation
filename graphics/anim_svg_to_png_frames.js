@@ -63,10 +63,10 @@ process.argv.forEach((arg, index) => {
     console.log('SVG dimensions (and viewport size):', svgSize.width, 'x', svgSize.height);
 
     for (let i = 0; i < num_frames; i++) {
-        let outputFilename = path.join(outputDir, `frame_${i.toString().padStart(3, '0')}.png`); // Use path.join for cross-platform paths
+        let outputFilename = path.join(outputDir, `frame_${i.toString().padStart(3, '0')}.png`);
         await page.screenshot({ path: outputFilename, omitBackground: true });
         await page.evaluate(() => new Promise(requestAnimationFrame)); // Advance one frame
-        await new Promise(resolve => setTimeout(resolve, delay)); // Fixed timeout function
+        await new Promise(resolve => setTimeout(resolve, delay));
         console.log('* ' + (i+1) + ' frames captured, writing generated image to ' + outputFilename);
     }
 
