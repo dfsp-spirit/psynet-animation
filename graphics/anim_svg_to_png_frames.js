@@ -14,11 +14,39 @@
 //
 
 const puppeteer = require('puppeteer');
+const path = require('path'); // Add the path module for cross-platform file paths
+
+// Default values
+let num_frames = 30;
+let delay = 100;
+let svgFile = 'file://' + path.join(__dirname, 'robot.svg');
+let outputDir = __dirname;
+
+// Parse command-line arguments
+process.argv.forEach((arg, index) => {
+    if (arg === '--num_frames' && process.argv[index + 1]) {
+        num_frames = parseInt(process.argv[index + 1], 10);
+    } else if (arg === '--delay' && process.argv[index + 1]) {
+        delay = parseInt(process.argv[index + 1], 10);
+    } else if (arg === '--svgFile' && process.argv[index + 1]) {
+        svgFile = 'file://' + path.join(__dirname, process.argv[index + 1]);
+    } else if (arg === '--outputDir' && process.argv[index + 1]) {
+        outputDir = path.join(__dirname, process.argv[index + 1]);
+    } else if (arg === '--help' || arg === '-h') {
+        console.log('Usage: node anim_svg_to_png_frames.js [--num_frames <num_frames>] [--delay <delay>] [--svgFile <svgFile>] [--outputDir <outputDir>]');
+        console.log('  --num_frames: Number of frames to capture (default: 30)');
+        console.log('  --delay: Delay between frames in milliseconds (default: 100)');
+        console.log('  --svgFile: SVG file to capture frames from, relative to current dir (default: robot.svg)');
+        console.log('  --outputDir: Directory to save PNG frames to, relative to current dir (default: current dir). Must exist and be writable.');
+        console.log('  --help, -h: Show this help message');
+        console.log('Example: node anim_svg_to_png_frames.js --num_frames 20 --delay 120 --svgFile robot_anim_in.svg --outputDir frames');
+        process.exit(0);
+    }
+});
 
 (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    const svgFile = 'file://' + __dirname + '/robot.svg'; // Change to your SVG file path
 
     await page.goto(svgFile);
 
@@ -29,16 +57,14 @@ const puppeteer = require('puppeteer');
     });
     await page.setViewport({ width: svgSize.width, height: svgSize.height });
 
-    const num_frames = 30; // Number of frames to capture
-    const delay = 100; // Delay between frames in ms
-
     console.log('Capturing', num_frames, 'Frames with delay of', delay, 'ms.');
 
     for (let i = 0; i < num_frames; i++) {
-        await page.screenshot({ path: `frame_${i.toString().padStart(3, '0')}.png`, omitBackground: true });
+        let outputFilename = path.join(outputDir, `frame_${i.toString().padStart(3, '0')}.png`); // Use path.join for cross-platform paths
+        await page.screenshot({ path: outputFilename, omitBackground: true });
         await page.evaluate(() => new Promise(requestAnimationFrame)); // Advance one frame
         await new Promise(resolve => setTimeout(resolve, delay)); // Fixed timeout function
-        console.log('* ' + (i+1) + ' frames captured');
+        console.log('* ' + (i+1) + ' frames captured, writing generated image to ' + outputFilename);
     }
 
     await browser.close();
