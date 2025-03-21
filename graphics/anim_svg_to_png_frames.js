@@ -15,6 +15,7 @@
 
 const puppeteer = require('puppeteer');
 const path = require('path'); // Add the path module for cross-platform file paths
+const fs = require('fs');
 
 // Default values
 let num_frames = 30;
@@ -43,6 +44,18 @@ process.argv.forEach((arg, index) => {
         process.exit(0);
     }
 });
+
+// Check if SVG file exists
+if (!fs.existsSync(svgFile.replace('file://', ''))) {
+    console.error(`Error: SVG file "${svgFile}" not found.`);
+    process.exit(1); // Exit with an error code
+}
+
+// Check if output directory exists
+if (!fs.existsSync(outputDir)) {
+    console.error(`Error: Output dir "${outputDir}" not found.`);
+    process.exit(1); // Exit with an error code
+}
 
 (async () => {
     const browser = await puppeteer.launch();
