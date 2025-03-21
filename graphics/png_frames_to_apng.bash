@@ -12,7 +12,7 @@ fi
 
 # Default values if no command line args given
 output_file="animated.png"
-input_dir="."
+input_dir="./frames_tmp"
 fps_anim=2  # default frame rate
 
 # read the frame rate from the command line
@@ -27,6 +27,7 @@ if [ -n "$1" ]; then
         echo "* frame_rate: The number of frames per second in the output animation. Positive integer, defaults to 2."
         echo "* output_file: The name of the output APNG file. Defaults to 'animated.png'."
         echo "* input_dir: The directory containing the input PNG frames. Defaults to the current directory. Frames must be named 'frame_001.png', 'frame_002.png', etc. (You can start with index 000 or 001.)"
+        echo "Example: $0 10 animation_out.png ./frames_tmp"
         exit
     fi
 

@@ -21,7 +21,7 @@ const fs = require('fs');
 let num_frames = 30;
 let delay = 100;
 let svgFile = 'file://' + path.join(__dirname, 'robot.svg');
-let outputDir = __dirname;
+let outputDir = path.join(__dirname, 'frames_tmp');
 
 // Parse command-line arguments
 process.argv.forEach((arg, index) => {
