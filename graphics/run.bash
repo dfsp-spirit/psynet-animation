@@ -11,16 +11,29 @@ then
     exit
 fi
 
+# Check if node is installed
+if ! command -v node &> /dev/null
+then
+    echo "node could not be found, please install it."
+    exit
+fi
+
 input_file="$1"
 if [ ! -f "$input_file" ]; then
     echo "Error: File '$input_file' not found."
     exit
 fi
 
-# construct output file name by replacing file extension '.svg' with '.png'
+# Construct output file name by replacing file extension '.svg' with '.png'
 output_file="${input_file/.svg/.png}"
 
-# delete frames in the temporary directory if they exist. Do not delete the directory itself.
+# Double check that output file name is not identical to input file name
+if [ "$input_file" == "$output_file" ]; then
+    echo "Error: Input and output file names are identical. Please ensure input file ends with file extension '.svg'."
+    exit
+fi
+
+# Delete frames in the temporary directory if they exist. Do not delete the directory itself.
 # This is needed in case old frames are present from a previous run.
 rm -f ./frames_tmp/frame_*.png
 
