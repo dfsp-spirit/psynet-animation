@@ -662,48 +662,47 @@
                     <circle cx="90" cy="110" r="3" fill="rgb(217, 167, 81)" stroke="black"
                         stroke-width="1" /> <!-- small screw in lower right corner of the upper torso -->
                 </g>
-
             </g>
-            <g id="robotLegs">
-                <g id="leftLeg">
-                    <circle cx="40" cy="170" r="10" fill="rgb(217, 167, 81)" stroke="black"
-                        stroke-width="2" /> <!-- Left sphere -->
-                    <rect x="35" y="180" width="10" height="15" rx="2" ry="2"
-                        fill="rgb(148, 167, 203)" stroke="black" stroke-width="1" /> <!-- Left upper
-                    leg -->
-                    <g id="leftLowerLeg">
-                        <circle cx="40" cy="195" r="8" fill="rgb(217, 167, 81)" stroke="black"
-                            stroke-width="2" /> <!-- Left knee -->
-                        <rect x="32" y="202" width="15" height="20" rx="2" ry="2"
-                            fill="rgb(124, 190, 178)" stroke="black" stroke-width="2" /> <!-- Left
-                        foot -->
-                        <rect x="28" y="220" width="22" height="10" rx="5" ry="5" fill="gray"
-                            stroke="black" stroke-width="2" /> <!-- Left foot -->
-                    </g>
-                </g>
-                <g id="rightLeg">
-                    <circle cx="80" cy="170" r="10" fill="rgb(217, 167, 81)" stroke="black"
-                        stroke-width="2" /> <!-- Right sphere -->
-                    <rect x="75" y="180" width="10" height="15" rx="2" ry="2"
-                        fill="rgb(148, 167, 203)" stroke="black" stroke-width="1" /> <!-- Right upper
-                    leg -->
-                    <g id="rightLowerLeg">
-                        <animateTransform attributeType="XML" attributeName="transform"
-                            type="translate" values="0,0; 0,-2; 0,0" dur="1s"
-                            repeatCount="indefinite" /> <!-- animation of lower leg slowly moving a
-                        tiny bit up and down -->
-                        <circle cx="80" cy="195" r="8" fill="rgb(217, 167, 81)" stroke="black"
-                            stroke-width="2" /> <!-- Right knee -->
-                        <rect x="73" y="202" width="15" height="20" rx="2" ry="2"
-                            fill="rgb(124, 190, 178)" stroke="black" stroke-width="2" /> <!-- Right
-                        foot -->
-                        <rect x="70" y="220" width="22" height="10" rx="5" ry="5" fill="gray"
-                            stroke="black" stroke-width="2" /> <!-- Right foot -->
-                    </g>
-                </g>
-            </g>
-
         </g>
+        <g id="robotLegs">
+            <g id="leftLeg">
+                <circle cx="40" cy="180" r="10" fill="rgb(217, 167, 81)" stroke="black"
+                    stroke-width="2" /> <!-- Left sphere -->
+                <rect x="35" y="190" width="10" height="15" rx="2" ry="2"
+                    fill="rgb(148, 167, 203)" stroke="black" stroke-width="1" /> <!-- Left upper
+                    leg -->
+                <g id="leftLowerLeg">
+                    <circle cx="40" cy="205" r="8" fill="rgb(217, 167, 81)" stroke="black"
+                        stroke-width="2" /> <!-- Left knee -->
+                    <rect x="32" y="212" width="15" height="20" rx="2" ry="2"
+                        fill="rgb(124, 190, 178)" stroke="black" stroke-width="2" /> <!-- Left
+                        foot -->
+                    <rect x="28" y="230" width="22" height="10" rx="5" ry="5" fill="gray"
+                        stroke="black" stroke-width="2" /> <!-- Left foot -->
+                </g>
+            </g>
+            <g id="rightLeg">
+                <circle cx="80" cy="180" r="10" fill="rgb(217, 167, 81)" stroke="black"
+                    stroke-width="2" /> <!-- Right sphere -->
+                <rect x="75" y="190" width="10" height="15" rx="2" ry="2"
+                    fill="rgb(148, 167, 203)" stroke="black" stroke-width="1" /> <!-- Right upper
+                    leg -->
+                <g id="rightLowerLeg">
+                    <animateTransform attributeType="XML" attributeName="transform"
+                        type="translate" values="0,0; 0,-2; 0,0" dur="1s"
+                        repeatCount="indefinite" /> <!-- animation of lower leg slowly moving a
+                        tiny bit up and down -->
+                    <circle cx="80" cy="205" r="8" fill="rgb(217, 167, 81)" stroke="black"
+                        stroke-width="2" /> <!-- Right knee -->
+                    <rect x="73" y="212" width="15" height="20" rx="2" ry="2"
+                        fill="rgb(124, 190, 178)" stroke="black" stroke-width="2" /> <!-- Right
+                        foot -->
+                    <rect x="70" y="230" width="22" height="10" rx="5" ry="5" fill="gray"
+                        stroke="black" stroke-width="2" /> <!-- Right foot -->
+                </g>
+            </g>
+        </g>
+
     </g>
 
 
