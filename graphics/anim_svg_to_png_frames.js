@@ -58,6 +58,9 @@ process.argv.forEach((arg, index) => {
     await page.setViewport({ width: svgSize.width, height: svgSize.height });
 
     console.log('Capturing', num_frames, 'Frames with delay of', delay, 'ms.');
+    console.log('SVG file:', svgFile);
+    console.log('Output directory:', outputDir);
+    console.log('SVG dimensions (and viewport size):', svgSize.width, 'x', svgSize.height);
 
     for (let i = 0; i < num_frames; i++) {
         let outputFilename = path.join(outputDir, `frame_${i.toString().padStart(3, '0')}.png`); // Use path.join for cross-platform paths
