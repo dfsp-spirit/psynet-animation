@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- This wrapper HTML file serves only one purpose: to define the 'setAnimationTime()' function, so that
+     users do not have to insert that function into every SVG file itself. This function is called by the
+     'anim_svg_to_png_frames.js' script, which is used to convert the SVG animation to APNG frames.
+  -->
 <html>
 <head>
     <style>
@@ -13,7 +17,7 @@
             embed.addEventListener("load", () => {
                 const svgDoc = embed.getSVGDocument();
                 if (svgDoc) {
-                    window.setAnimationTime = (time) => {
+                    window.setAnimationTime = (time) => {   /* This is what we came for: define setAnimationTime() function. */
                         svgDoc.documentElement.setCurrentTime(time);
                     };
                 }
