@@ -142,6 +142,7 @@ generate_html() {
     local html_file="$1"
     local svg_file="$2"
     local title="${3:-$html_file}"
+    local subtitle="${4:-$html_file}"
 
     cat > "$html_file" <<EOF
 <!DOCTYPE html>
@@ -160,18 +161,20 @@ generate_html() {
         img {
             max-width: 100%;
             height: auto;
+            border: 1px solid #000;
         }
     </style>
 </head>
 <body>
     <h1>$title</h1>
     <img src="$svg_file" alt="SVG Image">
+    <h3>$subtitle</h3>
 </body>
 </html>
 EOF
 }
 
-generate_html "${html_file}" "${output_file}" "Displaying ${output_file} ($numframes frames at $framerate fps)"
+generate_html "${html_file}" "${output_file}" "Displaying file '${output_file}' ($numframes frames at $framerate fps)" "Based on input file '${input_file}', captured $numframes frames with delay $delay ms."
 
 
 
