@@ -18,7 +18,7 @@ const path = require('path'); // Add the path module for cross-platform file pat
 const fs = require('fs');
 
 // Default values
-let numFrames = 30;
+let numFrames = 20;
 let delay = 100;
 let svgFile = 'file://' + path.join(__dirname, 'robot.svg');
 let outputDir = path.join(__dirname, 'frames_tmp');
@@ -35,7 +35,7 @@ process.argv.forEach((arg, index) => {
         outputDir = path.join(__dirname, process.argv[index + 1]);
     } else if (arg === '--help' || arg === '-h') {
         console.log('Usage: node anim_svg_to_png_frames.js [--numframes <num_frames>] [--delay <delay>] [--svgfile <svgFile>] [--outputdir <outputDir>]');
-        console.log('  --numframes: Number of frames to capture via screenshots (default: 30)');
+        console.log('  --numframes: Number of frames to capture via screenshots (default: 20)');
         console.log('  --delay: Delay between frame capture events (screenshots) in milliseconds (default: 100)');
         console.log('  --svgfile: SVG file to capture animation frames from, relative to current dir (default: robot.svg)');
         console.log('  --outputdir: Directory to save the resulting PNG frames (screenshots) to, relative to current dir (default: current dir). Must exist and be writable.');

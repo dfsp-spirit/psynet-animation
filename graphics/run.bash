@@ -31,7 +31,7 @@ show_help() {
     echo "* --numframes: The number of frames to capture from the input SVG animation. Positive integer, defaults to 10."
     echo "* --delay: The delay between frames when capturing screenshots from the input SVG animation. Positive integer (in ms), defaults to 100."
     echo "* --outputfile: The name of the output APNG file. Defaults to the name of the input file with the file extension '.svg replaced by '.png'."
-    echo "* --framerate: The number of frames per second in the output animation. Positive integer, defaults to 2."
+    echo "* --framerate: The number of frames per second in the output animation. Positive integer, defaults to 10."
     echo "* --help: Show this help message and exit."
     echo "* inputfile.svg: The input animated SVG file to be converted to an animated PNG. Required. Must have file extension '.svg' unless --outputfile is specified."
     echo "Examples:"
@@ -46,7 +46,7 @@ show_help() {
 
 delay=100   # delay in milliseconds between frames, passed to JS script
 numframes=10  # number of frames, passed to JS script
-framerate=2 # default frame rate for output APNG, passed to bash script/ffmpeg
+framerate=5 # default frame rate for output APNG, passed to bash script/ffmpeg
 input_file=""
 output_file=""
 html_file=""
