@@ -2,8 +2,11 @@
 #
 # Wrapper script to run both `node anim_svg_to_png_frames.js` and `png_frames_to_apng.bash` to convert an animated SVG to an animated PNG.
 #
-# Currently does not support all the command line options of the individual scripts.
+# Suuports passing on the named arguments to the two scripts.
+# The script requires `ffmpeg` and `node` to be installed and available on the system path.
 # It uses fixed temporary dictionary `./frames_tmp` to store the PNG frames.
+#
+# Written by Tim Schäfer, 2025-03-24
 
 # Check if ffmpeg is installed
 if ! command -v ffmpeg &> /dev/null
@@ -15,7 +18,7 @@ fi
 # Check if node is installed
 if ! command -v node &> /dev/null
 then
-    echo "node could not be found, please install it."
+    echo "node JS could not be found, please install it."
     exit
 fi
 
@@ -31,7 +34,13 @@ show_help() {
     echo "* --framerate: The number of frames per second in the output animation. Positive integer, defaults to 2."
     echo "* --help: Show this help message and exit."
     echo "* inputfile.svg: The input animated SVG file to be converted to an animated PNG. Required. Must have file extension '.svg' unless --outputfile is specified."
-    echo "Example: $0 --framerate 10 --outputfile animation_out.png input.svg"
+    echo "Examples:"
+    echo "  1) Capture 5 frames with 200ms delay (1 second duration @5fps) of the input animation, write output APNG with 5 fps (which will also be 1 second long):"
+    echo       "$0 --numframes 5 --delay 200 --framerate 5 --outputfile animation_out.png input.svg"
+    echo "  2) Capture 20 frames with 100ms delay (2 seconds @10fps) of the input animation, write output APNG with 10 fps (which will also be 2 seconds long):"
+    echo       "$0 --numframes 20 --delay 100 --framerate 10 --outputfile animation_out.png input.svg"
+    echo "  2) Capture 20 frames with 100ms delay (2 seconds @10fps) of the input animation, write output APNG which has the playback rate doubled (only 1 second duration @20fps):"
+    echo       "$0 --numframes 20 --delay 100 --framerate 20 --outputfile animation_out.png input.svg"
     exit
 }
 
@@ -78,7 +87,7 @@ while [[ "$#" -gt 0 ]]; do
         --help)
             show_help
             ;;
-        *)
+        *) # Assume the remaining argument is the input file
             input_file="$1"
             ;;
     esac
