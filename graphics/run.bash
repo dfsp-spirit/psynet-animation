@@ -36,11 +36,11 @@ show_help() {
     echo "* inputfile.svg: The input animated SVG file to be converted to an animated PNG. Required. Must have file extension '.svg' unless --outputfile is specified."
     echo "Examples:"
     echo "  1) Capture 5 frames with 200ms delay (1 second duration @5fps) of the input animation, write output APNG with 5 fps (which will also be 1 second long):"
-    echo       "$0 --numframes 5 --delay 200 --framerate 5 --outputfile animation_out.png input.svg"
+    echo       "$0 --numframes 5 --delay 200 --outputfile animation_out.png --framerate 5 input.svg"
     echo "  2) Capture 20 frames with 100ms delay (2 seconds @10fps) of the input animation, write output APNG with 10 fps (which will also be 2 seconds long):"
-    echo       "$0 --numframes 20 --delay 100 --framerate 10 --outputfile animation_out.png input.svg"
+    echo       "$0 --numframes 20 --delay 100 --outputfile animation_out.png --framerate 10 input.svg"
     echo "  2) Capture 20 frames with 100ms delay (2 seconds @10fps) of the input animation, write output APNG which has the playback rate doubled (only 1 second duration @20fps):"
-    echo       "$0 --numframes 20 --delay 100 --framerate 20 --outputfile animation_out.png input.svg"
+    echo       "$0 --numframes 20 --delay 100 --outputfile animation_out.png --framerate 20 input.svg"
     exit
 }
 
