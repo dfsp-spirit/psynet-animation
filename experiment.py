@@ -24,7 +24,7 @@ from psynet.page import DebugResponsePage, InfoPage
 from psynet.timeline import MediaSpec, Timeline
 from psynet.consent import NoConsent
 
-
+from typing import List, Dict
 
 def get_bird_image_dict(colors: List[str], imgdir: str) -> Dict[str, str]:
 
@@ -203,11 +203,11 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=10,
                             y=50,
-                            width=40,
+                            width=20,
+                            height=20,
                             click_to_answer=True,
-                            transform="s0.4",
                             animations=[
-                                Animation({ "x":40, "transform":"s1.0", }, duration=2.0),
+                                Animation({ "x":40, "width":40, "height":40 }, duration=2.0),
                             ],
                             loop_animations=False,
                         ),
@@ -216,10 +216,11 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=90,
                             y=50,
-                            transform="s0.4",
+                            width=20,
+                            height=20,
                             click_to_answer=True,
                             animations=[
-                                Animation({"x":55, "transform":"s1.0" }, duration=3.0),
+                                Animation({"x":55, "width":40, "height":40}, duration=3.0),
                             ],
                         ),
                     ],
@@ -263,9 +264,10 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=40,
                             y=50,
+                            width=40,
                             click_to_answer=True,
                             animations=[
-                                Animation({"y": -20, "transform":"s0.4" }, duration=2.0),
+                                Animation({"y": -20, "width":20, "height":20}, duration=2.0),
                             ],
                             loop_animations=False,
                         ),
@@ -273,9 +275,10 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=55,
                             y=50,
+                            width=40,
                             click_to_answer=True,
                             animations=[
-                                Animation({"y": -20, "transform":"s0.4" }, duration=2.0),
+                                Animation({"y": -20, "width":20, "height":20}, duration=2.0),
                             ],
                             loop_animations=False,
                         ),
@@ -289,10 +292,11 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=20,
                             y=-20,
-                            transform="s0.4",
+                            width=20,
+                            height=20,
                             click_to_answer=True,
                             animations=[
-                                Animation({"y": 50, "transform":"s1.0" }, duration=2.0),
+                                Animation({"y": 50, "width":40, "height":40 }, duration=2.0),
                             ],
                             loop_animations=False,
                         ),
@@ -300,10 +304,11 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=80,
                             y=-20,
-                            transform="s0.4",
+                            width=20,
+                            height=20,
                             click_to_answer=True,
                             animations=[
-                                Animation({"y": 50, "transform": "s1.0" }, duration=2.0),
+                                Animation({"y": 50, "width":40, "height":40 }, duration=2.0),
                             ],
                             loop_animations=False,
                         ),
@@ -317,6 +322,7 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=20,
                             y=50,
+                            width=40,
                             click_to_answer=True,
                             animations=[]
                         ),
@@ -324,6 +330,7 @@ class Exp(psynet.experiment.Experiment):
                             persist=False,
                             x=80,
                             y=50,
+                            width=40,
                             click_to_answer=True,
                             animations=[]
                         ),
