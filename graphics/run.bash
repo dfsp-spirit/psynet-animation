@@ -49,6 +49,7 @@ numframes=10  # number of frames, passed to JS script
 framerate=2 # default frame rate for output APNG, passed to bash script/ffmpeg
 input_file=""
 output_file=""
+html_file=""
 
 # Parse named arguments
 while [[ "$#" -gt 0 ]]; do
@@ -84,6 +85,10 @@ while [[ "$#" -gt 0 ]]; do
             output_file="$2"
             shift
             ;;
+        --htmlfile)
+            html_file="$2"
+            shift
+            ;;
         --help)
             show_help
             ;;
@@ -109,9 +114,17 @@ if [ -z "$output_file" ]; then
     output_file="${input_file/.svg/.png}"
 fi
 
+if [ -z "$html_file" ]; then
+    html_file="${input_file/.svg/.html}"
+fi
+
 # Double check that output file name is not identical to input file name
 if [ "$input_file" == "$output_file" ]; then
     echo "Error: Input and output file names are identical. Please ensure input file ends with file extension '.svg' or manually specify an output file with '--outputfile'."
+    exit
+fi
+if [ "$input_file" == "$html_file" ]; then
+    echo "Error: Input and HTML file names are identical. Please ensure input file ends with file extension '.svg' or manually specify an output HTML file with '--htmlfile'."
     exit
 fi
 
@@ -123,6 +136,43 @@ rm -f ./frames_tmp/frame_*.png
 # Convert the animated SVG to a sequence of PNG frames
 node anim_svg_to_png_frames.js --numframes $numframes --delay $delay --svgfile "$input_file" --outputdir "./frames_tmp"
 ./png_frames_to_apng.bash --framerate $framerate --outputfile "${output_file}" --inputdir "./frames_tmp"
+
+
+generate_html() {
+    local html_file="$1"
+    local svg_file="$2"
+    local title="${3:-$html_file}"
+
+    cat > "$html_file" <<EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title</title>
+    <style>
+        body {
+            background-color: #dcdcdc;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>$title</h1>
+    <img src="$svg_file" alt="SVG Image">
+</body>
+</html>
+EOF
+}
+
+generate_html "${html_file}" "${output_file}" "Displaying ${output_file} ($numframes frames at $framerate fps)"
+
 
 
 
