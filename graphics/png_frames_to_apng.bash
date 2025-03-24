@@ -23,7 +23,7 @@ show_help() {
     echo "Usage: $0 [--framerate <frame_rate>] [--output <output_file>] [--inputdir <input_dir>] [--help]"
     echo "This script requires ffmpeg to be installed and available on the system path."
     echo "* --framerate: The number of frames per second in the output animation. Positive integer, defaults to 2."
-    echo "* --output: The name of the output APNG file. Defaults to 'animated.png'."
+    echo "* --outputfile: The name of the output APNG file. Defaults to 'animated.png'."
     echo "* --inputdir: The directory containing the input PNG frames. Defaults to the current directory. Frames must be named 'frame_001.png', 'frame_002.png', etc. (You can start with index 000 or 001.)"
     echo "* --help: Show this help message."
     echo "Example: $0 --framerate 10 --output animation_out.png --inputdir ./frames_tmp"
@@ -42,7 +42,7 @@ while [[ "$#" -gt 0 ]]; do
                 exit 1
             fi
             ;;
-        --output)
+        --outputfile)
             output_file="$2"
             shift
             ;;

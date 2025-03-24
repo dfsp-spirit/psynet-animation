@@ -18,29 +18,29 @@ const path = require('path'); // Add the path module for cross-platform file pat
 const fs = require('fs');
 
 // Default values
-let num_frames = 30;
+let numFrames = 30;
 let delay = 100;
 let svgFile = 'file://' + path.join(__dirname, 'robot.svg');
 let outputDir = path.join(__dirname, 'frames_tmp');
 
 // Parse command-line arguments
 process.argv.forEach((arg, index) => {
-    if (arg === '--num_frames' && process.argv[index + 1]) {
-        num_frames = parseInt(process.argv[index + 1], 10);
+    if (arg === '--numframes' && process.argv[index + 1]) {
+        numFrames = parseInt(process.argv[index + 1], 10);
     } else if (arg === '--delay' && process.argv[index + 1]) {
         delay = parseInt(process.argv[index + 1], 10);
-    } else if (arg === '--svgFile' && process.argv[index + 1]) {
+    } else if (arg === '--svgfile' && process.argv[index + 1]) {
         svgFile = 'file://' + path.join(__dirname, process.argv[index + 1]);
-    } else if (arg === '--outputDir' && process.argv[index + 1]) {
+    } else if (arg === '--outputdir' && process.argv[index + 1]) {
         outputDir = path.join(__dirname, process.argv[index + 1]);
     } else if (arg === '--help' || arg === '-h') {
-        console.log('Usage: node anim_svg_to_png_frames.js [--num_frames <num_frames>] [--delay <delay>] [--svgFile <svgFile>] [--outputDir <outputDir>]');
-        console.log('  --num_frames: Number of frames to capture (default: 30)');
-        console.log('  --delay: Delay between frames in milliseconds (default: 100)');
-        console.log('  --svgFile: SVG file to capture frames from, relative to current dir (default: robot.svg)');
-        console.log('  --outputDir: Directory to save PNG frames to, relative to current dir (default: current dir). Must exist and be writable.');
+        console.log('Usage: node anim_svg_to_png_frames.js [--numframes <num_frames>] [--delay <delay>] [--svgfile <svgFile>] [--outputdir <outputDir>]');
+        console.log('  --numframes: Number of frames to capture via screenshots (default: 30)');
+        console.log('  --delay: Delay between frame capture events (screenshots) in milliseconds (default: 100)');
+        console.log('  --svgfile: SVG file to capture animation frames from, relative to current dir (default: robot.svg)');
+        console.log('  --outputdir: Directory to save the resulting PNG frames (screenshots) to, relative to current dir (default: current dir). Must exist and be writable.');
         console.log('  --help, -h: Show this help message');
-        console.log('Example: node anim_svg_to_png_frames.js --num_frames 20 --delay 120 --svgFile robot_anim_in.svg --outputDir frames');
+        console.log('Example: node anim_svg_to_png_frames.js --numframes 20 --delay 120 --svgfile robot_anim_in.svg --outputdir frames');
         process.exit(0);
     }
 });
@@ -70,12 +70,12 @@ if (!fs.existsSync(outputDir)) {
     });
     await page.setViewport({ width: svgSize.width, height: svgSize.height });
 
-    console.log('Capturing', num_frames, 'Frames with delay of', delay, 'ms.');
+    console.log('Capturing', numFrames, 'Frames with delay of', delay, 'ms.');
     console.log('SVG file:', svgFile);
     console.log('Output directory:', outputDir);
     console.log('SVG dimensions (and viewport size):', svgSize.width, 'x', svgSize.height);
 
-    for (let i = 0; i < num_frames; i++) {
+    for (let i = 0; i < numFrames; i++) {
         let outputFilename = path.join(outputDir, `frame_${i.toString().padStart(3, '0')}.png`);
         await page.screenshot({ path: outputFilename, omitBackground: true });
         await page.evaluate(() => new Promise(requestAnimationFrame)); // Advance one frame
@@ -84,5 +84,5 @@ if (!fs.existsSync(outputDir)) {
     }
 
     await browser.close();
-    console.log('All', num_frames, 'Frames captured!');
+    console.log('All', numFrames, 'Frames captured!');
 })();
